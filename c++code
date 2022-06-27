@@ -1,0 +1,37 @@
+class Solution{
+public:
+string rem(string s,int l)
+{
+      string an="";
+     
+       for(int i=0;i<l;i++)
+       {
+           int j=i+1;
+           if(s[i]==s[j])
+           {
+                while(j<l&&s[j]==s[i])
+                {
+                    j++;
+                }
+                i=j-1;
+                
+           }
+           else
+           {
+               an+=s[i];
+           }
+           
+       }
+       if(an.size()==s.size())return an;//after removal of duplicates if size remains same itmeans no element is dublicale this is final answer/
+       //otherwise ones again there is need to remove element
+       else
+       return rem(an,an.size());
+}
+    string rremove(string s){
+       
+      return rem(s,s.size());
+    }
+};
+
+
+https://practice.geeksforgeeks.org/problems/recursively-remove-all-adjacent-duplicates0744/1/?page=2&category[]=Strings&sortBy=submissions#
